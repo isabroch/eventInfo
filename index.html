@@ -11,7 +11,7 @@
     .carousel {
       width: 50%;
       display: flex;
-      max-height: 200px;
+      height: 20vh;
     }
 
     .card {
@@ -27,7 +27,17 @@
     document.addEventListener('DOMContentLoaded', (e) => {
       let container = document.querySelector('.carousel');
 
-      document.addEventListener('click', function (e) {
+      document.addEventListener('mousedown', function (e) {
+        e.preventDefault;
+
+        function buttonType(num) {
+          if (num == 0) {
+            return 'left button'
+          } else if (num == 2) {
+            return 'right button'
+          }
+        }
+
         console.log(e);
 
         console.log(`Click was done by user: ${e.isTrusted}`);
@@ -47,6 +57,28 @@
         console.log(`Window is fullscreen: ${(window.innerWidth == screen.width && window.innerHeight == screen.height)}`);
 
         console.log(`Called approximately ${Math.round(e.timeStamp * 0.001)} seconds from document load`);
+
+        console.log(`Element width: ${e.target.getBoundingClientRect().width}`);
+
+        console.log(`Element height: ${e.target.getBoundingClientRect().height}`);
+
+        console.log(`Screen width: ${window.innerWidth}`)
+
+        console.log(`Screen height: ${window.innerHeight}`);
+
+        console.log(`Alt is pressed: ${e.getModifierState('Alt')}`);
+
+        console.log(`Shift is pressed: ${e.getModifierState('Shift')}`);
+
+        console.log(`Ctrl is pressed: ${e.getModifierState('Control')}`);
+
+        console.log(`CAPS LOCK is on: ${e.getModifierState('CapsLock')}`);
+
+        console.log(`Event type is: ${e.type}`);
+
+        console.log(`What button did they click with?: ${buttonType(e.button)}`);
+
+        console.log(`Name of page: ${document.title}`);
       });
 
     });

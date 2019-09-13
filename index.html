@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    .carousel {
+      width: 50%;
+      display: flex;
+      max-height: 200px;
+    }
+
+    .card {
+      user-select: none;
+      flex: 1;
+      padding: 20px;
+      background: rgb(223, 157, 157);
+      margin: 10px;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (e) => {
+      let container = document.querySelector('.carousel');
+
+      document.addEventListener('click', function (e) {
+        console.log(e);
+
+        console.log(`Click was done by user: ${e.isTrusted}`);
+
+        console.log(`Listening for clicks on`, e.currentTarget);
+
+        console.log(`User clicked on`, e.target);
+
+        console.log(e.target, 'is inside of', container, "is",  container.contains(e.target));
+
+        console.log(`Number of ascendents: ${e.path.length}`)
+
+        console.log(`Mouse coordinates: ${e.x}, ${e.y}`);
+
+        console.log(`Page URL: ${window.location.href}`);
+
+        console.log(`Window is fullscreen: ${(window.innerWidth == screen.width && window.innerHeight == screen.height)}`);
+
+        console.log(`Called approximately ${Math.round(e.timeStamp * 0.001)} seconds from document load`);
+      });
+
+    });
+  </script>
+</head>
+
+<body>
+  <div class="carousel">
+    <div class="card">A</div>
+    <div class="card">B</div>
+    <div class="card">C</div>
+  </div>
+</body>
+
+</html>
